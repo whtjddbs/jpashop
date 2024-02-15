@@ -10,8 +10,16 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
-#        show_sql: true #System.out을 통해 찍기 때문에 사용하지 않는다.
+#        show_sql: true #이 옵션은 System.out을 통해 SQL 쿼리를 남기기 때문에 사용하지 않는다.
         format_sql: true
+
+  output:
+    ansi:
+      enabled: always
+
 logging:
   level:
-    org.hibernate.SQL: debug
+    org:
+      hibernate:
+        SQL: debug #옵션은 logger를 통해 하이버네이트 실행 SQL을 남긴다
+        orm.jdbc.bind: trace # 쿼리 파라미터 로그 남기기
