@@ -21,12 +21,12 @@ class MemberRepositoryTest {
     @Rollback(false)
     public void testMember() throws Exception {
         //given
-        Member member = new Member();
+        Member2 member = new Member2();
         member.setUsername("memberA");
 
         //when
         Long savedId = memberRepository.save(member);
-        Member findMember = memberRepository.find(savedId);
+        Member2 findMember = memberRepository.find(savedId);
 
         //then
         Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
